@@ -16,7 +16,7 @@ public class BulletinDao
 	String user = "root", pass = "", strUrl = "jdbc:mysql://localhost:3306/project_breizhlink";
 	Connection conn= null;
 	Statement stat= null;
-	String sql_ajout = "insert into bulletin VALUES (?,?,?) ";
+	String sql_ajout = "insert into bulletin VALUES (?,?,?,?) ";
 	String sql_affichage = "select nom from bulletin where nom = ?";
 
 	public void addBulletin(Bulletin bull)
@@ -31,10 +31,12 @@ public class BulletinDao
 			// création dun statement
 			stat = conn.createStatement();
 			
+			//preparation de la requete
 			PreparedStatement pst = conn.prepareStatement(sql_ajout);
-			pst.setString(1, bull.getNom());
-			pst.setString(2, bull.getPrenom());
-			pst.setInt(3, bull.getNote());
+			pst.setInt(1,0);
+			pst.setString(2, bull.getNom());
+			pst.setString(3, bull.getPrenom());
+			pst.setInt(4, bull.getNote());
 			pst.execute();
 
 		}
@@ -57,7 +59,7 @@ public class BulletinDao
 			PreparedStatement pst2 = conn.prepareStatement(sql_affichage);
 			pst2.setString(1, nomClef);
 			ResultSet rs = pst2.executeQuery();
-			while (rs.next())
+			while (rs.next())//parcour le résultat
 			{
 				listEtudiant.add(rs.getString(rs.getRow()));
 			}
