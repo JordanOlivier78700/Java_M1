@@ -1,18 +1,21 @@
 package test;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+
+import dao.*;
+import metier.Bulletin;
 
 public class bulletinTest {
 
 	public static void main(String[] args) {
 		
+		bulletinDAO bul = new bulletinDAO();
+		Bulletin bulltin = new Bulletin("jojo", "coucou", 12);
 		
-		//Demande a l'utilisateur le mot clé rechercher
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Mot clé recherché :" );
-		String recherche = sc.nextLine();
-		System.out.println("Voici la liste des bulletins avec le mot " + recherche);
+		System.out.println(bul.addBulletin().toString());
+		bul.getIbulletin().add(bulltin);
+		System.out.println(bul.getBulletinParMC("jojo",bul.getIbulletin()).toString());
 		
-		
+		System.out.println(bul.deleteBulletinParMC("Donati",bul.getIbulletin()).toString());
 	}
 }

@@ -32,21 +32,21 @@ public class Bulletin {
 		this.note = note;
 	}
 	
-	//Constructeur avec assignation d'attribuet
-	public Bulletin(String nom, String prenom, int note) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.note = note;
-	}
-	
-	//Constructeur
+	//Constructeur par défaut
 	public Bulletin() {
 		this.nom = new String();
 		this.prenom = new String();
 		this.note = 0;
 	}
 	
+	//Constructeur avec paramètres
+	public Bulletin(String nom, String prenom, int note) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.note = note;
+	}
+	
 	public String toString() {
-		return "Bulletin " + this.nom + " " + this.prenom + " " + this.note;
+		return "Bulletin de " + this.nom + " " + this.prenom + " Note : " + this.note;
 	}
 }
