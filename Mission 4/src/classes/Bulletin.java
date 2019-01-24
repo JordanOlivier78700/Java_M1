@@ -7,11 +7,11 @@ public static void main(String[] args) {
 try{
 
 Class.forName("com.mysql.jdbc.Driver");
-System.out.println("Pilote chargé");
+System.out.println("Pilote chargÃ©");
 
 }catch(ClassNotFoundException e){
 
-System.out.println("Pilote non trouvé. "+e.getMessage());
+System.out.println("Pilote non trouvÃ©. "+e.getMessage());
 }
 
 /*****************************************************/
@@ -19,13 +19,13 @@ System.out.println("Pilote non trouvé. "+e.getMessage());
 String url="jdbc:mysql://localhost/exempleBDD"; //url de la base 
 ResultSet res = null;
 
-String requete = "select * from bulletin";     //à créer d’abord la table 
+String requete = "select * from bulletin";     //Ã  crÃ©er dâ€™abord la table 
 Connection cnx=null;
 
 try{
 
 cnx = DriverManager.getConnection(url,"root","");  //identifiant, mot de passe 
-System.out.println("Connection établie avec succès.\n"); 
+System.out.println("Connection Ã©tablie avec succÃ¨s.\n"); 
 Statement stmt = cnx.createStatement();
 
 res = stmt.executeQuery(requete);
@@ -42,12 +42,12 @@ System.out.print(res.getString(3)+" ");
 System.out.println(res.getString(4));
 }
 
-System.out.println("\n Affichage terminé.");
+System.out.println("\n Affichage terminÃ©.");
 
 cnx.close(); //fermeture de la connexion
 
 cnx = DriverManager.getConnection(url,"root","");  //identifiant, mot de passe 
-System.out.println("Connection établie avec succès.\n"); 
+System.out.println("Connection Ã©tablie avec succÃ¨s.\n"); 
 Statement stmt2 = cnx.createStatement();
 
 String requete2 = "INSERT INTO bulletin(nom,prenom,note) VALUES ('Marie','DUBOIS',13);"; 
@@ -61,17 +61,17 @@ stmt2.executeUpdate(requete5);
 String requete6 = "INSERT INTO bulletin(nom,prenom,note) VALUES ('Olivier','JUJU',9);"; 
 stmt2.executeUpdate(requete6);
 cnx.close();
-System.out.println("\n Ajout des personnes terminé.");
+System.out.println("\n Ajout des personnes terminÃ©.");
 
 cnx = DriverManager.getConnection(url,"root","");  //identifiant, mot de passe 
-System.out.println("Connection établie avec succès.\n"); 
+System.out.println("Connection Ã©tablie avec succÃ¨s.\n"); 
 stmt = cnx.createStatement();
 
 res = stmt.executeQuery(requete);
 
 
 
-System.out.println("Le resultat de la requete ["+requete+"] après inserts est :"); 
+System.out.println("Le resultat de la requete ["+requete+"] aprÃ¨s inserts est :"); 
 while(res.next()){
 
 System.out.print(res.getString(2)+" ");
@@ -88,9 +88,9 @@ cnx.close(); //fermeture de la connexion
 
 
 cnx = DriverManager.getConnection(url,"root","");  //identifiant, mot de passe 
-System.out.println("Connection établie avec succès.\n"); 
+System.out.println("Connection Ã©tablie avec succÃ¨s.\n"); 
 
-String sql = "SELECT * FROM bulletin WHERE note > ?";
+String sql = "SELECT * FROM bulletin WHERE note < ?";
 PreparedStatement pstmt = cnx.prepareStatement(sql);
 pstmt.setInt(1,10);
 
@@ -104,13 +104,13 @@ System.out.print(res2.getString(3)+" ");
 System.out.println(res2.getString(4));
 }
 
-System.out.println("\n Affichage terminé.");
+System.out.println("\n Affichage terminÃ©.");
 
 
 }
 catch(SQLException e){
 
-         System.out.println("Erreur de connexion ou d'exécution de la requête"+   
+         System.out.println("Erreur de connexion ou d'exÃ©cution de la requÃªte"+   
          e.getMessage());
 }
 }
