@@ -13,7 +13,7 @@ public class Test {
 	{
 		Student stu1 = new Student();
 		StudentDAO stuDAO = new StudentDAO();
-		
+		/*
 		stu1.setNom();
 		stu1.setPrenom();
 		stu1.setAge();
@@ -26,7 +26,10 @@ public class Test {
 			System.out.println(student.toString());
 		}
 		
-			
+		stuDAO.upadeStudent("Toto", "Tata", 20, 14, 1);
+		*/
+		
+		stuDAO.deleteStudent(2);
 		
 	}
 

@@ -1,5 +1,4 @@
 package test;
-
 import dao.StudentDAO;
 import metier.Student;
 
@@ -17,7 +16,7 @@ public class Test {
 		
 		stuDAO.addStudent(stu1);
 		
-
+		
 	}
 
 }

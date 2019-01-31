@@ -17,7 +17,6 @@ public class Student implements Serializable
 	@Id
 	@GeneratedValue (strategy=GenerationType.AUTO)
 	int idStudent;
-	@Id
 	String nom;
 	String prenom;
 	int note;
