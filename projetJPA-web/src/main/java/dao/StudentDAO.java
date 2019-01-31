@@ -13,14 +13,14 @@ public class StudentDAO
 		
 	}
 	
-	public void addStudent(Student student) //ajout l'Ètudiant dans la BDD
+	public void addStudent(Student student) //ajout l'√©tudiant dans la BDD
 	{ 	
 		EntityManagerFactory emf;
 		
 			//1. Instanciation de la persistence.xml 1 fois, attention jpaProjetPU est le name du PU
 			emf = Persistence.createEntityManagerFactory("projetJPA-web Maven Webapp");
 	
-			//2.Construction d'un entity manager pour effectuer les opÈrations CRUD et transaction
+			//2.Construction d'un entity manager pour effectuer les op√©rations CRUD et transaction
 			EntityManager em = emf.createEntityManager();
 			
 			//3. Ouverture d'une transaction:
@@ -52,14 +52,14 @@ public class StudentDAO
 			}
 		}
 	
-	public List<Student> readStudent(String nom, String prenom) //ajout l'Ètudiant dans la BDD
+	public List<Student> readStudent(String nom, String prenom) //ajout l'√©tudiant dans la BDD
 	{ 	
 		EntityManagerFactory emf;
 		
 			//1. Instanciation de la persistence.xml 1 fois, attention jpaProjetPU est le name du PU
 			emf = Persistence.createEntityManagerFactory("projetJPA-web Maven Webapp");
 	
-			//2.Construction d'un entity manager pour effectuer les opÈrations CRUD et transaction
+			//2.Construction d'un entity manager pour effectuer les op√©rations CRUD et transaction
 			EntityManager em = emf.createEntityManager();
 			
 			//3. Ouverture d'une transaction:
@@ -78,4 +78,25 @@ public class StudentDAO
 		
 		}
 	
+	public void upadeStudent(String nom, String prenom, int age, int note)
+	{
+		//Permet de mettre a jour un etudiant 
+		//1. Instanciation de la persistence.xml 1 fois, attention jpaProjetPU est le name du PU
+		emf = Persistence.createEntityManagerFactory("projetJPA-web Maven Webapp");
+	
+		//2.Construction d'un entity manager pour effectuer les op√©rations CRUD et transaction
+		EntityManager em = emf.createEntityManager();
+			
+		//3. Ouverture d'une transaction:
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		int statut = statement.executeUpdate("INSERT INTO Student (nom, prenom, age, note) VALUES("DONATI", "Chachou", "22", "16")")
+		emf.close();
+	}
+	
+	public void deleteStudent(String nom){
+		//Appelle √† la m√©thode remove() 
+		
+	}
 }
