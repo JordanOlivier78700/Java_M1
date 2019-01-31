@@ -11,8 +11,9 @@ public class Commune implements Serializable
 	@GeneratedValue
 	int id;
 	String name;
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name = "maire_id")
+	
 	Maire maire;
 	
 	
