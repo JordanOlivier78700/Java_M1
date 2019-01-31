@@ -91,7 +91,8 @@ public class StudentDAO
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
-		int statut = statement.executeUpdate("INSERT INTO Student (nom, prenom, age, note) VALUES("DONATI", "Chachou", "22", "16")")
+		Query query = em.executeUpdate("INSERT INTO Student (nom, prenom, age, note) VALUES("DEBOUT", "Antoine", "21", "16")")
+		em.close();
 		emf.close();
 	}
 	
