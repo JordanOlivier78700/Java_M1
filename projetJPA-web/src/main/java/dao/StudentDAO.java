@@ -77,27 +77,4 @@ public class StudentDAO
 			return list_etudiant;
 		
 		}
-	
-	public void upadeStudent(String nom, String prenom, int age, int note)
-	{
-		//Permet de mettre a jour un etudiant 
-		//1. Instanciation de la persistence.xml 1 fois, attention jpaProjetPU est le name du PU
-		emf = Persistence.createEntityManagerFactory("projetJPA-web Maven Webapp");
-	
-		//2.Construction d'un entity manager pour effectuer les opérations CRUD et transaction
-		EntityManager em = emf.createEntityManager();
-			
-		//3. Ouverture d'une transaction:
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		
-		Query query = em.executeUpdate("INSERT INTO Student (nom, prenom, age, note) VALUES("DEBOUT", "Antoine", "21", "16")")
-		em.close();
-		emf.close();
-	}
-	
-	public void deleteStudent(String nom){
-		//Appelle à la méthode remove() 
-		
-	}
 }
