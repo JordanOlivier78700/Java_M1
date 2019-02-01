@@ -13,7 +13,8 @@ public class Formateur implements Serializable
 	@Embedded
 	Identite identite;
 	String experience;
-	
+	@ManyToOne
+	Eleve eleve;
 	
 	public Formateur ()
 	{}
@@ -50,7 +51,15 @@ public class Formateur implements Serializable
 		return "Formateur [id=" + id + ", identite=" + identite + ", experience=" + experience + "]";
 	}
 
+	public Eleve getEleve() {
+		return eleve;
+	}
 
+	public void setEleve(Eleve eleve) {
+		this.eleve = eleve;
+	}
+
+	
 	
 	
 	

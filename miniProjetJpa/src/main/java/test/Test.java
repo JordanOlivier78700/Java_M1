@@ -17,17 +17,18 @@ public class Test {
 		Formateur formateur =  new Formateur();
 		EleveDAO eleveDAO =  new EleveDAO();
 		FormateurDAO formateurDAo = new FormateurDAO();
-		Identite identity1 =  new Identite("olivier","prenomEleve",12);
-		Identite identity2 =  new Identite("nomProf","prenomProf",55);
+		Identite identity1 =  new Identite("olivier","Juliette",12);
+		Identite identity2 =  new Identite("nomProf","marcy",55);
 		
 		eleve.setIdentite(identity1);
 		eleve.setNote(5);
 		
 		formateur.setIdentite(identity2);
 		formateur.setExperience("experience de prof");
+		formateur.setEleve(eleve);
 		
-		//eleveDAO.addStudent(eleve);
-		//formateurDAo.addFormateur(formateur);
+		eleveDAO.addStudent(eleve);
+		formateurDAo.addFormateur(formateur);
 		
 		/*List<Eleve> stulist = eleveDAO.getEleves();
 		for (Eleve student : stulist) {
@@ -35,11 +36,11 @@ public class Test {
 		}*/
 		
 		//eleveDAO.deleteEleve(16);
-		/*
+		
 		List<Eleve> stulist = eleveDAO.getElevesByNom("olivier");
 		for (Eleve student : stulist) {
 			System.out.println(student.toString());
-		}*/
+		}
 		
 
 	}
