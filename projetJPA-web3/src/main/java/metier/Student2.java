@@ -11,6 +11,45 @@ public class Student2 implements Serializable
 	StudentID idStu;
 	int note;
 	int age;
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + age;
+		result = prime * result + ((idStu == null) ? 0 : idStu.hashCode());
+		result = prime * result + note;
+		return result;
+	}
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student2 other = (Student2) obj;
+		if (age != other.age)
+			return false;
+		if (idStu == null) {
+			if (other.idStu != null)
+				return false;
+		} else if (!idStu.equals(other.idStu))
+			return false;
+		if (note != other.note)
+			return false;
+		return true;
+	}
+
+
+
 
 	public Student2()
 	{
